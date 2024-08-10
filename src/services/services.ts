@@ -19,8 +19,18 @@ export type Movie = {
   vote_count: number;
 };
 
-export async function getMovies(): Promise<Movie[]> {
-  const response: AxiosResponse = await APIInstance.get("/trending/movie/week");
+export async function getMovies(page: number): Promise<Movie[]> {
+  const response: AxiosResponse = await APIInstance.get(
+    `/discover/movie?page=${page}`
+  );
+
+  return response.data.results;
+}
+
+export async function getMovieById(id: string): Promise<Movie> {
+  const response: AxiosResponse = await APIInstance.get(
+    `/discover/movie/:${id}`
+  );
 
   return response.data.results;
 }

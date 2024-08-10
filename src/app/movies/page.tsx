@@ -12,7 +12,7 @@ type MoviesPageProps = {
 };
 
 const MoviesPage: React.FC<MoviesPageProps> = async () => {
-  const movies = await getMovies();
+  const movies = await getMovies(1);
 
   return (
     <Container>
