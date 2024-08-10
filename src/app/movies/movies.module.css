@@ -3,16 +3,6 @@
   min-height: 100vh;
 }
 
-.moviesWrapper {
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
 .moviesWrapper ul {
   display: flex;
   flex-wrap: wrap;
@@ -20,4 +10,21 @@
   gap: 1rem;
   list-style-type: none;
   margin: 0;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.firstBlockNavigation {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: center;
 }

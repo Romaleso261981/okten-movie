@@ -15,7 +15,7 @@ export const Header = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/about">About</a>
+            <a href="/movies">Movies</a>
           </li>
         </ul>
         <ThemeSwitcher />

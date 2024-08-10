@@ -4,6 +4,8 @@ import { Container } from "@/components";
 import Link from "next/link";
 import { Movie, getMovies } from "@/services/services";
 import { StarsRatingComponent } from "@/components/StarsRatingComponent/StarsRatingComponent";
+import { BackBtn } from "@/components/BackBtn/BackBtn";
+import { Flex, Title } from "@mantine/core";
 
 const imageDefaultLink = "https://image.tmdb.org/t/p/w500";
 const defaultImg = "https://via.placeholder.com/500x750";
@@ -18,13 +20,20 @@ const MoviesPage: React.FC<MoviesPageProps> = async () => {
   return (
     <Container>
       <section className={s.moviesWrapper}>
-        <h1>Trending now</h1>
-        {/* <SearchBar onSearch={handleSearch} /> */}
-        <StarsRatingComponent reating={2} />
+        <Flex className={s.navigation}>
+          <Flex className={s.firstBlockNavigation}>
+            <BackBtn />
+            <Title>Trending now</Title>
+          </Flex>
+          <Flex>
+            {/* <SearchBar onSearch={handleSearch} /> */}
+            <StarsRatingComponent reating={2} />
+          </Flex>
+        </Flex>
         <ul>
           {movies.map((movie) => (
             <li>
-              <Link key={movie.id} href={`/movies/${movie.id}`}>
+              <Link key={movie.title} href={`/movies/${movie.id}`}>
                 <img
                   src={
                     movie.poster_path
@@ -33,8 +42,8 @@ const MoviesPage: React.FC<MoviesPageProps> = async () => {
                   }
                   alt={movie.title}
                 />
-                <h3>{movie.title}</h3>
               </Link>
+              <h3>{movie.title}</h3>
             </li>
           ))}
         </ul>
