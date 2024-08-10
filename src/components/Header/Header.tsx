@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 import s from "./Header.module.css";
+import { ThemeSwitcher } from "..";
 
 export const Header = () => {
   return (
