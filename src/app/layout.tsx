@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/spotlight/styles.css";
 import { Footer, Header } from "@/components";
 import { MantineProvider, createTheme } from "@mantine/core";
 

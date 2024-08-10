@@ -5,5 +5,8 @@
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 30px;
-  background-color: antiquewhite;
+  background-color: dark-light(
+    var(--color-primary) 10%,
+    var(--color-primary) 5%
+  );
 }

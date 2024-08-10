@@ -3,6 +3,7 @@ import s from "./movies.module.css";
 import { Container } from "@/components";
 import Link from "next/link";
 import { Movie, getMovies } from "@/services/services";
+import { StarsRatingComponent } from "@/components/StarsRatingComponent/StarsRatingComponent";
 
 const imageDefaultLink = "https://image.tmdb.org/t/p/w500";
 const defaultImg = "https://via.placeholder.com/500x750";
@@ -18,6 +19,8 @@ const MoviesPage: React.FC<MoviesPageProps> = async () => {
     <Container>
       <section className={s.moviesWrapper}>
         <h1>Trending now</h1>
+        {/* <SearchBar onSearch={handleSearch} /> */}
+        <StarsRatingComponent reating={2} />
         <ul>
           {movies.map((movie) => (
             <li>
