@@ -51,7 +51,7 @@ export const MovieDetailsPage = async ({
             <Flex className={s.genres}>
               <GenreList genres={genreNames} />
             </Flex>
-            <StarsRatingComponent reating={popularity / 1000} />
+            <StarsRatingComponent reating={popularity / 100} />
           </Flex>
         </div>
       </Container>
