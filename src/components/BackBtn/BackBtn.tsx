@@ -1,15 +1,25 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
 import styles from "./BackBtn.module.css";
+import { Button, useMantineColorScheme } from "@mantine/core";
 
-export function BackBtn() {
+export function BackBtn({ text, path }: { text: string; path: string }) {
   const router = useRouter();
+  const { colorScheme } = useMantineColorScheme();
+
+  console.log(colorScheme);
 
   return (
-    <button className={styles.backBtn} onClick={() => router.back()}>
-      Go back
-    </button>
+    <Button
+      style={{
+        backgroundColor: colorScheme === "light" ? "black" : "white",
+        color: colorScheme === "light" ? "white" : "black"
+      }}
+      className={styles.backBtn}
+      onClick={() => router.replace(path)}
+    >
+      {text}
+    </Button>
   );
 }

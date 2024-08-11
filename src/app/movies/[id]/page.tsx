@@ -1,28 +1,39 @@
-import { Movie, getMovieById } from "@/services/services";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import { getMovieById } from "@/services/services";
 
 import s from "./MovieDetailsPage.module.css";
 
-import Link from "next/link";
-import Image from "next/image";
+import { BackBtn } from "@/components/BackBtn/BackBtn";
+import { Flex } from "@mantine/core";
+import { StarsRatingComponent } from "@/components/StarsRatingComponent/StarsRatingComponent";
+import { Container } from "@/components";
+import { GenreList } from "@/helpers/GenreList/GenreList";
 
 const placeholderImg = "https://via.placeholder.com/300x450";
 
-export const MovieDetailsPage = async ({ params: { id } }: Params) => {
-  const movie = (await getMovieById(id)) as Movie;
+export const MovieDetailsPage = async ({
+  params: { id }
+}: {
+  params: { id: string };
+}) => {
+  const movie = await getMovieById(id);
 
-  const { title, poster_path, vote_average, overview, genre_ids } = movie;
-  const movieGenres = genre_ids.map((genre) => genre).join(", ");
-  // const backLinkHref = location.state?.from ?? "/";
+  if (!movie) {
+    return <div>Movie not found</div>;
+  }
+
+  const { title, poster_path, vote_average, overview, genres, popularity } =
+    movie;
+
+  const genreNames = genres.map((genre) => genre.name);
 
   return (
     <>
-      <Link className={s.path} href="/">
-        Go Back
-      </Link>
-      <>
+      <Flex mb={40} ml={40}>
+        <BackBtn text={"Movies"} path={"/movies"} />
+      </Flex>
+      <Container>
         <div className={s.wrapper}>
-          <Image
+          <img
             className={s.img}
             src={
               poster_path
@@ -31,25 +42,21 @@ export const MovieDetailsPage = async ({ params: { id } }: Params) => {
             }
             alt={title}
           />
-          <div className={s.description}>
+          <Flex className={s.description}>
             <h1 className={s.title}>{title}</h1>
             <span className={s.label}>User score: {vote_average * 10} %</span>
             <span className={s.label}>Overview</span>
             <p className={s.overview}>{overview}</p>
             <span className={s.label}>Genres</span>
-            <p>{movieGenres}</p>
-          </div>
+            <Flex className={s.genres}>
+              <GenreList genres={genreNames} />
+            </Flex>
+            <StarsRatingComponent reating={popularity / 1000} />
+          </Flex>
         </div>
-        <ul>
-          <button className={s.button}>
-            <Link href={`/movies/${id}/cast`}>Cast</Link>
-          </button>
-          <button className={s.button}>
-            <Link href="/reviews">Reviews</Link>
-          </button>
-        </ul>
-      </>
+      </Container>
     </>
   );
 };
+
 export default MovieDetailsPage;

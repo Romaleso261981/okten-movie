@@ -11,7 +11,7 @@ export type Movie = {
   media_type: string;
   original_language: string;
   adult: boolean;
-  genre_ids: number[];
+  genres: Genre[];
   popularity: number;
   release_date: string;
   video: boolean;
@@ -19,18 +19,35 @@ export type Movie = {
   vote_count: number;
 };
 
-export async function getMovies(page: number): Promise<Movie[]> {
+type MovieRespons = {
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+};
+
+export type Genre = {
+  id: number;
+  name: string;
+};
+
+export async function getMovies(page: number): Promise<MovieRespons> {
   const response: AxiosResponse = await APIInstance.get(
     `/discover/movie?page=${page}`
   );
-
-  return response.data.results;
+  console.log("response.data", response.data);
+  return response.data;
 }
 
 export async function getMovieById(id: string): Promise<Movie> {
-  const response: AxiosResponse = await APIInstance.get(
-    `/discover/movie/:${id}`
-  );
+  const response = await APIInstance.get(`/movie/${id}?language=en-US`);
+  return response.data;
+}
 
-  return response.data.results;
+export async function getMovieByGenre(genre: string): Promise<void> {
+  console.log("genre", genre);
+  const response: AxiosResponse = await APIInstance.get(
+    `/discover/movies?genres=${genre}`
+  );
+  console.log("response", response);
 }

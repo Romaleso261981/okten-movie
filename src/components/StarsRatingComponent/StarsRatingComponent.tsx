@@ -11,5 +11,5 @@ export const StarsRatingComponent: FC<StarsRatingComponentProps> = ({
   reating
 }) => {
   const [value, setValue] = useState(reating);
-  return <Rating value={value} onChange={setValue} />;
+  return <Rating value={value} onChange={setValue} readOnly />;
 };
