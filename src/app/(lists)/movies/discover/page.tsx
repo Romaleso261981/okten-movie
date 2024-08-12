@@ -5,6 +5,14 @@ import { getMovies } from "@/services/services";
 import { Center, Pagination } from "@mantine/core";
 
 import s from "./movies.module.css";
+import { pages } from "@/config";
+
+export async function generateMetadata() {
+  return {
+    title: "Discover Movies",
+    description: pages.movie.discover.description
+  };
+}
 
 const MoviesPage = async () => {
   const { results, total_pages } = await getMovies(1);
