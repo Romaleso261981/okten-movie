@@ -3,7 +3,6 @@
 import React from "react";
 
 import s from "./Header.module.css";
-import { ThemeSwitcher } from "..";
 
 export const Header = () => {
   return (
@@ -18,7 +17,7 @@ export const Header = () => {
             <a href="/movies">Movies</a>
           </li>
         </ul>
-        <ThemeSwitcher />
+        {/* <ThemeSwitcher /> */}
       </nav>
     </header>
   );
