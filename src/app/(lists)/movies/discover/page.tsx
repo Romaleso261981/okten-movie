@@ -1,11 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { Container } from "@/components";
 import MovieList from "@/components/MoviesList/MoviesList";
-import { getMovies } from "@/services/services";
+import { filterDiscoverParams } from "@/lib/utils";
 import { Center, Pagination } from "@mantine/core";
 
 import s from "./movies.module.css";
 import { pages } from "@/config";
+import { tmdb } from "@/tmdb/api";
+import { SortByType } from "@/tmdb/api/types";
+
+interface ListPageProps {
+  searchParams?: Record<string, string>;
+}
 
 export async function generateMetadata() {
   return {
@@ -14,14 +20,23 @@ export async function generateMetadata() {
   };
 }
 
-const MoviesPage = async () => {
-  const { results, total_pages } = await getMovies(1);
+const Discover: FC<ListPageProps> = async ({ searchParams }) => {
+  const {
+    results: movies,
+    page: currentPage,
+    total_pages
+  } = await tmdb.discover.movie({
+    page: searchParams?.page,
+    sort_by: searchParams?.sort_by as SortByType,
+    ...filterDiscoverParams(searchParams)
+  });
+  // const { results, total_pages } = await getMovies(1);
 
   return (
     <Container>
       <section className={s.wrapper}>
         <h1>Trending now</h1>
-        <MovieList movies={results} />
+        <MovieList movies={movies} />
         <Center mt={30} mb={50}>
           {total_pages > 0 && <Pagination total={total_pages} />}
         </Center>
@@ -30,4 +45,4 @@ const MoviesPage = async () => {
   );
 };
 
-export default MoviesPage;
+export default Discover;

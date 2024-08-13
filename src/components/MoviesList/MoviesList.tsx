@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Movie } from "@/services/services";
-import { Flex } from "@mantine/core";
+import { Movie, TvShow } from "@/tmdb/models";
 
 import s from "./movies.module.css";
 
