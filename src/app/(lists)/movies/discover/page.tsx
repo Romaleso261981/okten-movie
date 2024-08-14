@@ -26,11 +26,10 @@ const Discover: FC<ListPageProps> = async ({ searchParams }) => {
     page: currentPage,
     total_pages
   } = await tmdb.discover.movie({
-    page: searchParams?.page,
+    page: "1",
     sort_by: searchParams?.sort_by as SortByType,
     ...filterDiscoverParams(searchParams)
   });
-  // const { results, total_pages } = await getMovies(1);
 
   return (
     <Container>
@@ -38,7 +37,9 @@ const Discover: FC<ListPageProps> = async ({ searchParams }) => {
         <h1>Trending now</h1>
         <MovieList movies={movies} />
         <Center mt={30} mb={50}>
-          {total_pages > 0 && <Pagination total={total_pages} />}
+          {total_pages > 0 && (
+            <Pagination total={total_pages} value={currentPage} />
+          )}
         </Center>
       </section>
     </Container>

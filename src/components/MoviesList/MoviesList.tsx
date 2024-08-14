@@ -21,7 +21,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
       <ul className={s.list}>
         {movies.map((movie) => (
           <li className={s.item} key={movie.id}>
-            <Link href={`/movies/${movie.id}`}>
+            <Link href={`/movie/${movie.id}`}>
               <img
                 src={
                   movie.poster_path
