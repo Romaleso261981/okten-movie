@@ -10,10 +10,9 @@ import { MantineLogo } from "@mantinex/mantine-logo";
 import { IconSearch } from "@tabler/icons-react";
 
 const links = [
-  { link: "/movie/discover", label: "Movies" },
+  { link: "/movies/discover", label: "Movies" },
   { link: "/", label: "Home" },
-  { link: "/", label: "About" },
-  { link: "/", label: "Geting tuch" }
+  { link: "/", label: "About" }
 ];
 
 export const Header = () => {
@@ -21,12 +20,7 @@ export const Header = () => {
   const [mounted, setMounted] = useState<boolean>(false);
 
   const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={s.link}
-      onClick={(event) => event.preventDefault()}
-    >
+    <a key={link.label} href={link.link} className={s.link}>
       {link.label}
     </a>
   ));

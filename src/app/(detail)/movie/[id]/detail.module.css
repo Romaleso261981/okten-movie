@@ -1,22 +1,26 @@
 .wrapper {
-  position: absolute;
-  top: 600px;
-  left: 200px;
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 20px;
-  padding-bottom: 80px;
+  margin-bottom: 80px;
   background-color: var(--mantine-color-body);
 }
 
 .descriptionWrapper {
-  position: relative;
+  width: 1200px;
+}
+
+.posterWrapper {
+  position: absolute;
+  top: -50px;
+  left: 900px;
 }
 
 .description {
   flex-direction: column;
   justify-content: end;
   gap: 10px;
-  color: var(----badge-bd);
+  color: var(--badge-bd);
   margin-left: 40px;
 }
