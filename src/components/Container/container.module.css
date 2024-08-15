@@ -4,4 +4,5 @@
   margin-left: auto;
   padding-right: 1rem;
   padding-left: 1rem;
+  background-color: var(--mantine-color-body);
 }
