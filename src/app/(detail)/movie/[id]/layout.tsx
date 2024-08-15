@@ -51,8 +51,6 @@ export default async function DetailLayout({
 
   const src = backdrop_path ? tmdbImage.backdrop(backdrop_path) : "";
 
-  console.log("src", src);
-
   return (
     <Container>
       <ImageContainer>

@@ -37,9 +37,7 @@ const Discover: FC<ListPageProps> = async ({ searchParams }) => {
         <h1>Trending now</h1>
         <MovieList movies={movies} />
         <Center mt={30} mb={50}>
-          {total_pages > 0 && (
-            <Pagination total={total_pages} value={currentPage} />
-          )}
+          {total_pages > 0 && <Pagination total={100} />}
         </Center>
       </section>
     </Container>

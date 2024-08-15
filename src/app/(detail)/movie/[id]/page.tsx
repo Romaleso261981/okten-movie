@@ -1,7 +1,7 @@
 import ImageContainer from "@/components/ImageContainer/ImageContainer";
 import { siteConfig } from "@/config";
 import { tmdb } from "@/tmdb/api";
-import { Flex, Image, Text, Title } from "@mantine/core";
+import { Button, Flex, Image, Text, Title } from "@mantine/core";
 import { Metadata } from "next";
 
 import s from "./detail.module.css";
@@ -60,7 +60,9 @@ export default async function Detail({ params }: DetailProps) {
             <Text>{`Runtime: ${runtime}`}</Text>
             <Text>{`Budget: ${budget}`}</Text>
             <Text>{`Revenue: ${revenue}`}</Text>
+            <Button>Video</Button>
           </Flex>
+          <Flex></Flex>
         </Flex>
       </Flex>
     </>

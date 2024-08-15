@@ -6,13 +6,12 @@
   flex-direction: row;
   gap: 20px;
   padding-bottom: 80px;
+  background-color: var(--foreground-rgb);
+  background-color: black;
 }
 
 .descriptionWrapper {
   position: relative;
-}
-
-.posterWrapper {
 }
 
 .description {
