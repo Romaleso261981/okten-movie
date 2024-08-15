@@ -20,7 +20,7 @@ export const Header = () => {
   const [mounted, setMounted] = useState<boolean>(false);
 
   const items = links.map((link) => (
-    <a key={link.label} href={link.link} className={s.link}>
+    <a key={link.label} href={link.link} className={s.itemLink}>
       {link.label}
     </a>
   ));
@@ -35,7 +35,7 @@ export const Header = () => {
       <div className={s.inner}>
         <Group>
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
-          <MantineLogo size={28} />
+          <MantineLogo size={28} className={s.logo}/>
         </Group>
         <nav className={s.navigation}>
           <Group>

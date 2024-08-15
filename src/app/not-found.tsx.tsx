@@ -1,19 +1,19 @@
-"use client";
+import { Button, Flex, Text, Title } from "@mantine/core";
 
-import { Flex, Text, Title } from "@mantine/core";
-
-export default function ErrorPage() {
+const NotFound = () => {
   return (
     <Flex align="flex-end" justify="center" display="flex" h="40vh">
       <Flex direction="column" justify="center">
-        <Title>Something went wrong</Title>
+        <Title>404</Title>
         <Text>
-          Something went wrong while trying to load the page.
+          The page you are looking for does not exist.
           <br />
           Please go back to the homepage.
         </Text>
-        <a href="/">Go home</a>
+        <Button />
       </Flex>
     </Flex>
   );
-}
+};
+
+export default NotFound;
