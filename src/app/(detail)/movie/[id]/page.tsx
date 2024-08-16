@@ -1,4 +1,3 @@
-import ImageContainer from "@/components/ImageContainer/ImageContainer";
 import { siteConfig } from "@/config";
 import { tmdb } from "@/tmdb/api";
 import { Button, Flex, Group, Image, Text, Title } from "@mantine/core";

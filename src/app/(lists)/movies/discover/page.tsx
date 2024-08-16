@@ -4,10 +4,11 @@ import MovieList from "@/components/MoviesList/MoviesList";
 import { filterDiscoverParams } from "@/lib/utils";
 import { Center, Pagination } from "@mantine/core";
 
-import s from "./movies.module.css";
 import { pages } from "@/config";
 import { tmdb } from "@/tmdb/api";
 import { SortByType } from "@/tmdb/api/types";
+
+import s from "./movies.module.css";
 
 interface ListPageProps {
   searchParams?: Record<string, string>;

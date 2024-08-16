@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Movie, TvShow } from "@/tmdb/models";
+import { Movie } from "@/tmdb/models";
 
 import s from "./movies.module.css";
 

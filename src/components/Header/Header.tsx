@@ -5,8 +5,7 @@ import React, { useEffect, useState } from "react";
 import s from "./Header.module.css";
 import { ColorSwitch } from "../ThemeSwitcher/ThemeSwitcher";
 import { useDisclosure } from "@mantine/hooks";
-import { Autocomplete, Burger, Group, rem } from "@mantine/core";
-import { MantineLogo } from "@mantinex/mantine-logo";
+import { Autocomplete, Burger, Group, Title, rem } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 
 const links = [
@@ -27,7 +26,6 @@ export const Header = () => {
 
   useEffect(() => {
     setMounted(true);
-    return () => console.log("Clean-up mounted (header)");
   }, []);
 
   return (
@@ -35,7 +33,7 @@ export const Header = () => {
       <div className={s.inner}>
         <Group>
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
-          <MantineLogo size={28} className={s.logo}/>
+          <Title>TMdb Movie</Title>
         </Group>
         <nav className={s.navigation}>
           <Group>
