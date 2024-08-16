@@ -1,0 +1,30 @@
+"use client";
+
+import { Button, Group, Pagination } from "@mantine/core";
+import { usePathname, useSearchParams } from "next/navigation";
+import { FC, useState } from "react";
+
+type PaginationComponentProps = {
+  total: number;
+};
+
+export const PaginationComponent: FC<PaginationComponentProps> = ({
+  total
+}) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
+
+  const createPageURL = (pageNumber: string | number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", pageNumber.toString());
+    return `${pathname}?${params.toString()}`;
+  };
+
+  return (
+    <Group>
+      <a href={createPageURL(currentPage - 1)}>Prev</a>
+      <a href={createPageURL(currentPage + 1)}>Next</a>
+    </Group>
+  );
+};

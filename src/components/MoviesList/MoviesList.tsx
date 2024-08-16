@@ -17,25 +17,24 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
   }
 
   return (
-    <>
-      <ul className={s.list}>
-        {movies.map((movie) => (
-          <li className={s.item} key={movie.id}>
-            <Link href={`/movie/${movie.id}`}>
-              <img
-                src={
-                  movie.poster_path
-                    ? `${imageDefaultLink}${movie.poster_path}`
-                    : defaultImg
-                }
-                alt={movie.title}
-              />
-            </Link>
-            <h3>{movie.title}</h3>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className={s.list}>
+      {movies.map((movie) => (
+        <li className={s.item} key={movie.id}>
+          <Link href={`/movie/${movie.id}`}>
+            <img
+              className={s.img}
+              src={
+                movie.poster_path
+                  ? `${imageDefaultLink}${movie.poster_path}`
+                  : defaultImg
+              }
+              alt={movie.title}
+            />
+          </Link>
+          <h3>{movie.title}</h3>
+        </li>
+      ))}
+    </ul>
   );
 };
 

@@ -31,7 +31,7 @@
 .navigation {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 50px;
   justify-content: space-between;
   align-items: center;
 }
@@ -44,24 +44,19 @@
   align-items: center;
 }
 
-.navigation ul li {
+.itemItem {
   list-style: none;
 }
 
 .itemLink {
   display: block;
-  line-height: 1;
-  padding: rem(8px) rem(12px);
-  border-radius: var(--mantine-radius-sm);
-  text-decoration: none;
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  font-size: var(--mantine-font-size-sm);
-  font-weight: 500;
+  font-size: var(--mantine-font-size-lg);
+  font-weight: 900;
+  transition: all 0.3s;
+}
 
-  @mixin hover {
-    background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-6)
-    );
-  }
+.itemLink:hover {
+  color: var(--mantine-color-primary);
+  font-size: var(--mantine-font-size-xl);
 }
