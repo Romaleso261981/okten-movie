@@ -1,25 +1,36 @@
-import React, { FC } from "react";
-import Link from "next/link";
+"use client";
 
+import React, { FC } from "react";
+import { usePathname, useSearchParams } from "next/navigation"; // Updated to next/navigation
 import styles from "./Categories.module.css";
+import Link from "next/link";
 
 type Category = {
   id: number;
   name: string;
 };
 
-type Categorys = {
+type CategoriesProps = {
   categories: Category[];
 };
 
-export const Categories: FC<Categorys> = ({ categories }) => {
+export const Categories: FC<CategoriesProps> = ({ categories }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const handleCategory = (category: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("with_genres", category);
+    return `${pathname}?${params.toString()}`;
+  };
+
   return (
     <div className={styles.categories}>
       {categories.map((category) => (
         <Link
+          href={handleCategory(category.id.toString())}
           key={category.id}
           className={styles.category}
-          href={`/${category.id}`}
         >
           <div className={styles.name}>{category.name}</div>
         </Link>

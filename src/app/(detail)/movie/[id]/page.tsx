@@ -32,10 +32,13 @@ export default async function Detail({ params }: DetailProps) {
     budget,
     revenue,
     original_title,
-    poster_path
+    poster_path,
+    genres
   } = await tmdb.movie.detail({
     id: params.id
   });
+
+  console.log("genres", genres);
 
   return (
     <>

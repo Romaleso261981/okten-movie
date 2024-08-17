@@ -112,6 +112,7 @@ const Discover: FC<ListPageProps> = async ({
   const currentPage = Number(searchParams?.page) || 1;
 
   const { results: movies, total_pages } = await tmdb.discover.movie({
+    ...searchParams,
     page: currentPage.toString()
   });
 
