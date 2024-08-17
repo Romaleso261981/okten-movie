@@ -11,7 +11,7 @@ type MovieListProps = {
   movies: Movie[];
 };
 
-const MovieList: React.FC<MovieListProps> = ({ movies }) => {
+export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
   if (!movies) {
     return <div>Loading...</div>;
   }
@@ -37,5 +37,3 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
     </ul>
   );
 };
-
-export default MovieList;

@@ -18,4 +18,6 @@
   list-style: none;
   border-radius: 5px;
   height: 100%;
+  box-shadow: 0 5px 10px 0
+    light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
 }

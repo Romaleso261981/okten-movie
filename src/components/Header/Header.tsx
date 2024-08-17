@@ -7,6 +7,7 @@ import { ColorSwitch } from "../ThemeSwitcher/ThemeSwitcher";
 import { useDisclosure } from "@mantine/hooks";
 import { Autocomplete, Burger, Flex, Group, Title, rem } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
+import Search from "../Search/Search";
 
 const links = [
   { id: 1, link: "/movies/discover", label: "Movies" },
@@ -38,17 +39,7 @@ export const Header = () => {
         </Group>
         <nav className={s.navigation}>{items}</nav>
         <Flex gap={40}>
-          <Autocomplete
-            className={s.search}
-            placeholder="Search"
-            leftSection={
-              <IconSearch
-                style={{ width: rem(16), height: rem(16) }}
-                stroke={1.5}
-              />
-            }
-            visibleFrom="xs"
-          />
+          <Search />
           {mounted === true ? <ColorSwitch /> : null}
         </Flex>
       </div>

@@ -1,45 +1,40 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { IoSearch } from "react-icons/io5";
+import { useDebouncedCallback } from "use-debounce";
 
 import s from "./Search.module.css";
 
-interface SearchBarProps {
-  onSearch: (query: string) => void;
-}
+const Search = () => {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
 
-export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [value, setValue] = useState<string>("");
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const query = value.trim();
-    if (query) {
-      onSearch(query);
-      setValue("");
+  const handleSearch = useDebouncedCallback((term: string) => {
+    // console.log(term);
+    const params = new URLSearchParams(searchParams);
+    params.set("page", "1");
+    if (term) {
+      params.set("query", term);
+    } else {
+      params.delete("query");
     }
-  };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
+    replace(`${pathname}?${params.toString()}`);
+  }, 300);
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className={s.form}>
-        <input
-          type="text"
-          value={value}
-          onChange={handleChange}
-          className={s.input}
-        />
-        <button type="submit" className={s.button}>
-          Search
-        </button>
-      </form>
-    </>
+    <div className={s.inputWrapper}>
+      <input
+        type="text"
+        className={s.input}
+        placeholder="Search..."
+        onChange={(e) => handleSearch(e.target.value)}
+        defaultValue={searchParams.get("query")?.toString()}
+      />
+      <IoSearch className={s.icon} />
+    </div>
   );
 };
 
-export default SearchBar;
+export default Search;

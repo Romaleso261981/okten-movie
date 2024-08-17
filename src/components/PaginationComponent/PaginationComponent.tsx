@@ -1,8 +1,8 @@
 "use client";
 
-import { Button, Group, Pagination } from "@mantine/core";
+import { Group } from "@mantine/core";
 import { usePathname, useSearchParams } from "next/navigation";
-import { FC, useState } from "react";
+import { FC } from "react";
 
 type PaginationComponentProps = {
   total: number;

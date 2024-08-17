@@ -7,3 +7,4 @@ export * from "./MoviesList/MoviesList";
 export * from "./ImageContainer/ImageContainer";
 export * from "./MoviesList/MoviesList";
 export * from "./PaginationComponent/PaginationComponent";
+export * from "./Categories/Categories";
