@@ -4,6 +4,7 @@ import { Button, Flex, Group, Image, Text, Title } from "@mantine/core";
 import { Metadata } from "next";
 
 import s from "./detail.module.css";
+import { Categories } from "@/components";
 
 export const metadata: Metadata = {
   title: {
@@ -61,6 +62,9 @@ export default async function Detail({ params }: DetailProps) {
             <Group>
               <Button>Video</Button>
             </Group>
+          </Flex>
+          <Flex>
+            <Categories categories={genres} />
           </Flex>
           <Flex></Flex>
         </Flex>
