@@ -4,6 +4,7 @@ import React, { FC } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "./Categories.module.css";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 type Category = {
   id: number;
@@ -14,7 +15,7 @@ type CategoriesProps = {
   categories: Category[];
 };
 
-export const Categories: FC<CategoriesProps> = ({ categories }) => {
+const CategoriesComponent: FC<CategoriesProps> = ({ categories }) => {
   const searchParams = useSearchParams();
 
   const handleCategory = (category: string) => {
@@ -37,3 +38,7 @@ export const Categories: FC<CategoriesProps> = ({ categories }) => {
     </div>
   );
 };
+
+export const Categories = dynamic(() => Promise.resolve(CategoriesComponent), {
+  ssr: false
+});
