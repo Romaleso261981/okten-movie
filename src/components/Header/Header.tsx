@@ -5,9 +5,9 @@ import React, { useEffect, useState } from "react";
 import s from "./Header.module.css";
 import { ColorSwitch } from "../ThemeSwitcher/ThemeSwitcher";
 import { useDisclosure } from "@mantine/hooks";
-import { Autocomplete, Burger, Flex, Group, Title, rem } from "@mantine/core";
-import { IconSearch } from "@tabler/icons-react";
+import { Burger, Flex, Group, Title } from "@mantine/core";
 import Search from "../Search/Search";
+import { UserButton } from "..";
 
 const links = [
   { id: 1, link: "/movies/discover", label: "Movies" },
@@ -41,6 +41,7 @@ export const Header = () => {
         <Flex gap={40}>
           <Search />
           {mounted === true ? <ColorSwitch /> : null}
+          <UserButton />
         </Flex>
       </div>
     </header>
