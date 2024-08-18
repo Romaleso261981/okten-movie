@@ -52,22 +52,23 @@ export default async function Detail({ params }: DetailProps) {
               height={450}
             />
           </Flex>
-          <Flex className={s.description}>
-            <Title>{original_title}</Title>
-            <Text>{`Status: ${status}`}</Text>
-            <Text>{`Release_date: ${release_date}`}</Text>
-            <Text>{`Runtime: ${runtime}`}</Text>
-            <Text>{`Budget: ${budget}`}</Text>
-            <Text>{`Revenue: ${revenue}`}</Text>
-            <Group>
-              <Button>Video</Button>
-            </Group>
-          </Flex>
           <Flex>
-            <Categories categories={genres} />
-            <StarsRatingComponent reating={vote_average} />
+            <Flex className={s.description}>
+              <Title>{original_title}</Title>
+              <Text>{`Status: ${status}`}</Text>
+              <Text>{`Release_date: ${release_date}`}</Text>
+              <Text>{`Runtime: ${runtime}`}</Text>
+              <Text>{`Budget: ${budget}`}</Text>
+              <Text>{`Revenue: ${revenue}`}</Text>
+              <Group>
+                <Button>Video</Button>
+                <StarsRatingComponent reating={vote_average} />
+              </Group>
+              <Flex>
+                <Categories categories={genres} />
+              </Flex>
+            </Flex>
           </Flex>
-          <Flex></Flex>
         </Flex>
       </Flex>
     </>

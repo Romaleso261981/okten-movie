@@ -1,6 +1,6 @@
 .categories {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 60px;
   gap: 24px;
   margin-top: 40px;
