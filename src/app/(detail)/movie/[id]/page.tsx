@@ -4,7 +4,8 @@ import { Button, Flex, Group, Image, Text, Title } from "@mantine/core";
 import { Metadata } from "next";
 
 import s from "./detail.module.css";
-import { Categories } from "@/components";
+import { Categories } from "./UI";
+import { StarsRatingComponent } from "@/components/StarsRatingComponent/StarsRatingComponent";
 
 export const metadata: Metadata = {
   title: {
@@ -34,12 +35,11 @@ export default async function Detail({ params }: DetailProps) {
     revenue,
     original_title,
     poster_path,
-    genres
+    genres,
+    vote_average
   } = await tmdb.movie.detail({
     id: params.id
   });
-
-  console.log("genres", genres);
 
   return (
     <>
@@ -65,6 +65,7 @@ export default async function Detail({ params }: DetailProps) {
           </Flex>
           <Flex>
             <Categories categories={genres} />
+            <StarsRatingComponent reating={vote_average} />
           </Flex>
           <Flex></Flex>
         </Flex>

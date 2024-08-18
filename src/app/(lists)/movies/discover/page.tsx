@@ -1,15 +1,11 @@
 import React, { FC } from "react";
-import {
-  Categories,
-  Container,
-  MovieList,
-  PaginationComponent
-} from "@/components";
+import { Container, MovieList, PaginationComponent } from "@/components";
 import { Center } from "@mantine/core";
 
 import { pages } from "@/config";
 import { tmdb } from "@/tmdb/api";
 import s from "./movies.module.css";
+import { Categories } from "./UI";
 
 const genres = [
   {
