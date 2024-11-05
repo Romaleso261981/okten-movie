@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
 import s from "./Header.module.css";
 import { ColorSwitch } from "../ThemeSwitcher/ThemeSwitcher";
@@ -18,13 +18,13 @@ export const Header = () => {
   const [opened, { toggle }] = useDisclosure(false);
   const [mounted, setMounted] = useState<boolean>(false);
 
-  const items = links.map((link) => (
+  const items = links.map(link =>
     <li key={link.id} className={s.itemItem}>
       <a href={link.link} className={s.itemLink}>
         {link.label}
       </a>
     </li>
-  ));
+  );
 
   useEffect(() => {
     setMounted(true);
@@ -37,7 +37,9 @@ export const Header = () => {
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
           <Title>TMdb Movie</Title>
         </Group>
-        <nav className={s.navigation}>{items}</nav>
+        <nav className={s.navigation}>
+          {items}
+        </nav>
         <Flex gap={40}>
           <Search />
           {mounted === true ? <ColorSwitch /> : null}

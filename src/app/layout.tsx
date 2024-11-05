@@ -9,12 +9,15 @@ import { MantineProvider, createTheme } from "@mantine/core";
 
 import { Provider as StoreProvider } from "react-redux";
 import { store } from "@/store/store";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const theme = createTheme({
-  /** Put your mantine theme override here */
-});
+const theme = createTheme(
+  {
+    /** Put your mantine theme override here */
+  }
+);
 
 export default function RootLayout({
   children
@@ -26,7 +29,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider store={store}>
           <MantineProvider theme={theme}>
-            <Header />
+            <Suspense fallback={<div>Loading........</div>}>
+              <Header />
+            </Suspense>
             {children}
           </MantineProvider>
         </StoreProvider>

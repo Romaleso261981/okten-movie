@@ -10,12 +10,12 @@ import {
   TelescopeIcon,
   TrendingUpIcon,
   TvIcon,
-  User,
-} from "lucide-react"
+  User
+} from "lucide-react";
 
-import { pages } from "@/config/pages"
+import { pages } from "@/config/pages";
 
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Movies App",
@@ -24,35 +24,35 @@ export const siteConfig = {
   mainNav: [
     {
       title: "Home",
-      href: "/",
-    },
+      href: "/"
+    }
   ],
   links: {
-    github: "https://github.com/oktay/movies",
+    github: "https://github.com/Romaleso261981/okten-movie",
     next: "https://nextjs.org",
-    vercel: "https://vercel.com",
+    netlify: "https://app.netlify.com/",
     tmdb: "https://www.themoviedb.org",
-    shadcn: "https://ui.shadcn.com/",
+    shadcn: "https://ui.shadcn.com/"
   },
   author: {
-    name: "Oktay Colakoglu",
-    web: "https://oktaycolakoglu.com",
-  },
-}
+    name: "Lesyo Roman",
+    web: "https://google.com"
+  }
+};
 
 export type NavItem = {
-  title: string
-  href: string
-  icon: LucideIcon
-  description?: string
-  items?: NavItem[]
-}
+  title: string;
+  href: string;
+  icon: LucideIcon;
+  description?: string;
+  items?: NavItem[];
+};
 
 const home = {
   title: "Home",
   href: "/",
-  icon: HomeIcon,
-}
+  icon: HomeIcon
+};
 
 const movies = {
   title: "Movies",
@@ -64,34 +64,34 @@ const movies = {
       title: "Discover",
       href: "/movie/discover",
       icon: TelescopeIcon,
-      description: pages.movie.discover.description,
+      description: pages.movie.discover.description
     },
     {
       title: "Popular",
       href: "/movie/popular",
       icon: HeartIcon,
-      description: pages.movie.popular.description,
+      description: pages.movie.popular.description
     },
     {
       title: "Now Playing",
       href: "/movie/now-playing",
       icon: PlayIcon,
-      description: pages.movie.nowPlaying.description,
+      description: pages.movie.nowPlaying.description
     },
     {
       title: "Upcoming",
       href: "/movie/upcoming",
       icon: CalendarIcon,
-      description: pages.movie.upcoming.description,
+      description: pages.movie.upcoming.description
     },
     {
       title: "Top Rated",
       href: "/movie/top-rated",
       icon: StarIcon,
-      description: pages.movie.topRated.description,
-    },
-  ],
-}
+      description: pages.movie.topRated.description
+    }
+  ]
+};
 
 const tvShows = {
   title: "TV Shows",
@@ -103,34 +103,34 @@ const tvShows = {
       title: "Discover",
       href: "/tv/discover",
       icon: TelescopeIcon,
-      description: pages.tv.discover.description,
+      description: pages.tv.discover.description
     },
     {
       title: "Popular",
       href: "/tv/popular",
       icon: HeartIcon,
-      description: pages.tv.popular.description,
+      description: pages.tv.popular.description
     },
     {
       title: "Airing Today",
       href: "/tv/airing-today",
       icon: PlayIcon,
-      description: pages.tv.airingToday.description,
+      description: pages.tv.airingToday.description
     },
     {
       title: "On The Air",
       href: "/tv/on-the-air",
       icon: RadioTowerIcon,
-      description: pages.tv.onTheAir.description,
+      description: pages.tv.onTheAir.description
     },
     {
       title: "Top Rated",
       href: "/tv/top-rated",
       icon: StarIcon,
-      description: pages.tv.topRated.description,
-    },
-  ],
-}
+      description: pages.tv.topRated.description
+    }
+  ]
+};
 
 const people = {
   title: "People",
@@ -142,10 +142,10 @@ const people = {
       title: "Popular",
       href: "/person/popular",
       icon: HeartIcon,
-      description: pages.people.popular.description,
-    },
-  ],
-}
+      description: pages.people.popular.description
+    }
+  ]
+};
 
 const trending = {
   title: "Trending",
@@ -157,26 +157,26 @@ const trending = {
       title: "Movies",
       href: "/trending/movie",
       icon: ClapperboardIcon,
-      description: pages.trending.movie.description,
+      description: pages.trending.movie.description
     },
     {
       title: "TV Shows",
       href: "/trending/tv",
       icon: TvIcon,
-      description: pages.trending.tv.description,
-    },
+      description: pages.trending.tv.description
+    }
     // {
     //   title: "People",
     //   href: "/trending/people",
     //   icon: User,
     //   description: pages.trending.people.description,
     // },
-  ],
-}
+  ]
+};
 
 export const navigation = {
-  items: [home, movies, tvShows, people, trending] as NavItem[],
-}
+  items: [home, movies, tvShows, people, trending] as NavItem[]
+};
 
 export const availableParams = [
   "with_genres",
@@ -191,5 +191,5 @@ export const availableParams = [
   "vote_average.gte",
   "vote_average.lte",
   "vote_count.gte",
-  "vote_count.lte",
-]
+  "vote_count.lte"
+];
